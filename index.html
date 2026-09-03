@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Shahjhan Miss</title>
+    <!-- Masterclass Luxury Serif Fonts -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Background Music Audio Element (Autoplay ready via user interaction) -->
+    <audio id="bgMusic" src="music.mp3" loop></audio>
+
+    <!-- Ambient Slow-Falling Flower Petals -->
+    <div class="flower-container" id="flowerContainer"></div>
+    
+    <!-- Blaster Celebration Particle Canvas (Page 2 Opening) -->
+    <div class="blaster-container" id="blasterContainer"></div>
+
+    <!-- ==================== SCREEN 1: THE OPEN GAME ==================== -->
+    <div class="screen active" id="screen1">
+        <div class="content-wrapper">
+            <h1 class="main-title">
+                FOR <span class="ribbon-letter">S<span class="ribbon">🎀</span></span>HAJHAN MISS
+            </h1>
+            
+            <div id="btnWrapper1" class="btn-wrapper-p1">
+                <div id="gifPopup1" class="gif-popup">
+                    <p>Try again Miss! 😜</p>
+                    <div class="img-frame">
+                        <img id="popupGif1" src="" alt="Game Clip">
+                    </div>
+                </div>
+                <button id="openBtn" class="open-btn">Open</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== SCREEN 2: THE GREETING CARD & CONTINUE GAME ==================== -->
+    <div class="screen" id="screen2">
+        <div class="page-layout">
+            <div class="card-perspective">
+                <div class="premium-card">
+                    <div class="corner tl"></div>
+                    <div class="corner tr"></div>
+                    <div class="corner bl"></div>
+                    <div class="corner br"></div>
+                    
+                    <div class="card-inner-border">
+                        <h2 class="card-heading">HAPPY TEACHER'S DAY MISS</h2>
+                        
+                        <div class="card-message">
+                            <p>Wishing you a beautiful day filled with the same joy you bring to our classroom.</p>
+                            <p>May this celebration return all the warmth, guidance, and inspiration you give us.</p>
+                            <p>Thank you for making every lesson an elegant journey of growth and discovery.</p>
+                            <p>Cheers to your dedication, your boundless patience, and your wonderful presence.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="btnWrapper2" class="standard-btn-wrapper">
+                <div id="gifPopup2" class="gif-popup">
+                    <p>Almost there Miss! 😏</p>
+                    <div class="img-frame">
+                        <img id="popupGif2" src="" alt="Game Clip">
+                    </div>
+                </div>
+                <button id="continueBtn" class="continue-btn">Continue</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== SCREEN 3: THE SECRET LETTER GAME ==================== -->
+    <div class="screen" id="screen3">
+        <div class="page-layout scrollable-layout-fix">
+            
+            <!-- Deluxe Envelope Model Container -->
+            <div id="envelopeScene" class="envelope-scene">
+                <div class="envelope-flap"></div>
+                <div class="envelope-back-shading"></div>
+                <div class="envelope-body-front">
+                    <div class="wax-seal">👑</div>
+                </div>
+                <div class="envelope-paper-card">
+                    <span>Unfolding Luxury Letter...</span>
+                </div>
+            </div>
+            
+            <!-- Luxury Royal Letter Container Frame Shell -->
+            <div id="premiumLetter" class="premium-letter">
+                <div class="corner tl"></div>
+                <div class="corner tr"></div>
+                <div class="corner bl"></div>
+                <div class="corner br"></div>
+                
+                <div class="letter-scroll-wrapper">
+                    <div class="premium-paper-sheet">
+                        <div class="letter-inner-border">
+                            <div id="typewriterTarget" class="typewriter-text"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Page 3 Envelope Button Interaction Node -->
+            <div id="btnWrapper3" class="standard-btn-wrapper">
+                <div id="gifPopup3" class="gif-popup">
+                    <p>Catch me if you can! 📥</p>
+                    <div class="img-frame">
+                        <img id="popupGif3" src="" alt="Game Clip">
+                    </div>
+                </div>
+                <button id="letterBtn" class="letter-btn">Open Letter</button>
+            </div>
+
+            <!-- Loop Button Hook Area -->
+            <div id="dynamicButtonHook"></div>
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,594 @@
+/* Core Structural Reset & Luxury Base Canvas */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(135deg, #FFD1DC 0%, #FFE5EC 100%);
+    font-family: 'Cormorant Garamond', serif;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* Master Screen Switch Transition System */
+.screen {
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+    opacity: 0;
+}
+
+.screen.active {
+    display: flex;
+    animation: screenFadeIn 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+@keyframes screenFadeIn {
+    from { opacity: 0; transform: scale(0.99); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Background Cherry Blossoms Engine */
+.flower-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.falling-flower {
+    position: absolute;
+    top: -30px;
+    font-size: 1.4rem;
+    animation: luxuryFall linear infinite;
+    user-select: none;
+}
+
+@keyframes luxuryFall {
+    0% { transform: translateY(0) rotate(0deg) scale(0.8); opacity: 0; }
+    10% { opacity: 0.8; }
+    90% { opacity: 0.5; }
+    100% { transform: translateY(105vh) rotate(270deg) scale(1.1); opacity: 0; }
+}
+
+/* ==================== SCREEN 1 SPECIFIC STYLING ==================== */
+.content-wrapper {
+    position: relative;
+    text-align: center;
+    width: 100%;
+    max-width: 1000px;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 10vh;
+}
+
+.main-title {
+    font-family: 'Cinzel', serif;
+    font-size: 4.5rem;
+    font-weight: 600;
+    color: #2D1A1E;
+    letter-spacing: 12px;
+    line-height: 1.4;
+    text-shadow: 2px 4px 8px rgba(74, 34, 39, 0.05);
+    margin-bottom: 2rem;
+}
+
+.ribbon-letter {
+    position: relative;
+    display: inline-block;
+}
+
+.ribbon {
+    position: absolute;
+    top: -22px;
+    left: 45%;
+    font-size: 2.6rem;
+    transform: translateX(-50%) rotate(-12deg);
+    transform-origin: center;
+}
+
+.btn-wrapper-p1 {
+    position: absolute;
+    left: 50%;
+    top: 65%;
+    transform: translate(-50%, -50%);
+    display: inline-block;
+    z-index: 1000;
+    transition: opacity 0.2s linear, transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.standard-btn-wrapper {
+    position: absolute;
+    left: 50%;
+    top: 84%;
+    display: inline-block;
+    z-index: 1000;
+    transition: opacity 0.2s linear, left 0.2s cubic-bezier(0.16, 1, 0.3, 1), top 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.open-btn, .letter-btn {
+    font-family: 'Cinzel', serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    letter-spacing: 6px;
+    text-indent: 6px;
+    padding: 16px 64px;
+    color: #FFFFFF;
+    background: #3A2227; 
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 2px;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(58, 34, 39, 0.15);
+    transition: all 0.3s ease;
+}
+
+.open-btn:hover, .letter-btn:hover {
+    transform: scale(1.03);
+    background: #251417;
+}
+
+/* ==================== GLOBAL CONTROLS FOR PRANK GIF POPS ==================== */
+.gif-popup {
+    display: none;
+    position: absolute;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #FFFFFF;
+    padding: 6px;
+    border-radius: 6px;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(255, 192, 203, 0.5);
+    width: 110px;
+    text-align: center;
+    z-index: 1001;
+    animation: luxuryPop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.gif-popup p {
+    font-size: 0.8rem;
+    color: #3A2227;
+    margin-bottom: 4px;
+    white-space: nowrap;
+    font-weight: 600;
+}
+
+.gif-popup .img-frame {
+    width: 100%;
+    height: 75px;
+    overflow: hidden;
+    border-radius: 3px;
+}
+
+.gif-popup img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@keyframes luxuryPop {
+    from { transform: translateX(-50%) scale(0.7) translateY(10px); opacity: 0; }
+    to { transform: translateX(-50%) scale(1) translateY(0); opacity: 1; }
+}
+
+/* ==================== SCREEN 2: BLASTER & GREETING CARD ==================== */
+.blaster-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 20;
+    overflow: hidden;
+}
+
+.blast-particle {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    animation: blastFall forwards ease-out;
+}
+
+@keyframes blastFall {
+    0% { transform: translateY(-20px) translateX(0) scale(1); opacity: 1; }
+    100% { transform: translateY(60vh) translateX(var(--drift)) scale(0); opacity: 0; }
+}
+
+.page-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.scrollable-layout-fix {
+    height: 100vh;
+    overflow-y: auto;
+    padding: 40px 0;
+    width: 100%;
+}
+
+.card-perspective {
+    perspective: 1200px;
+    z-index: 10;
+    padding: 20px;
+    margin-bottom: 4rem; 
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.premium-card {
+    background: #FFFDF9; 
+    width: 100%;
+    max-width: 480px;
+    padding: 30px;
+    position: relative;
+    box-shadow: -8px 15px 40px rgba(45, 26, 30, 0.15), 0 10px 20px rgba(0, 0, 0, 0.03);
+    border: 1px solid #EAD8C1;
+    transform: rotate(-4deg);
+}
+
+.card-inner-border {
+    border: 1px solid #D4AF37; 
+    padding: 30px 25px;
+    position: relative;
+    outline: 4px solid #FFFDF9;
+    outline-offset: -8px;
+}
+
+.corner {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border: 2px solid #D4AF37;
+    z-index: 12;
+}
+.corner.tl { top: 33px; left: 28px; border-right: none; border-bottom: none; }
+.corner.tr { top: 33px; right: 28px; border-left: none; border-bottom: none; }
+.corner.bl { bottom: 33px; left: 28px; border-right: none; border-top: none; }
+.corner.br { bottom: 33px; right: 28px; border-left: none; border-top: none; }
+
+.card-heading {
+    font-family: 'Cinzel', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: 4px;
+    line-height: 1.4;
+    margin-bottom: 1.8rem;
+    background: linear-gradient(45deg, #E65C9C 0%, #B84793 50%, #7B2CBF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.card-message {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.22rem;
+    font-weight: 600;
+    line-height: 1.9;
+    color: #443236;
+    text-align: center;
+}
+
+.card-message p {
+    margin-bottom: 12px;
+    font-style: italic;
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeLineUp 0.8s ease-out forwards;
+}
+
+.card-message p:nth-child(1) { animation-delay: 0.6s; }
+.card-message p:nth-child(2) { animation-delay: 1.1s; }
+.card-message p:nth-child(3) { animation-delay: 1.6s; }
+.card-message p:nth-child(4) { animation-delay: 2.1s; margin-bottom: 0; }
+
+@keyframes fadeLineUp {
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.continue-btn {
+    font-family: 'Cinzel', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 5px;
+    text-indent: 5px;
+    padding: 14px 50px;
+    color: #4A2227;
+    background: #FFFFFF; 
+    border: 1px solid #4A2227;
+    border-radius: 2px;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.continue-btn:hover {
+    background: #4A2227;
+    color: #FFFFFF;
+}
+
+/* ==================== SCREEN 3: ENVELOPE & CINEMATIC UNFOLDING ==================== */
+.envelope-scene {
+    display: none; 
+    width: 320px;
+    height: 200px;
+    background: #FFFDF6; 
+    border-radius: 4px;
+    position: relative;
+    box-shadow: 0 30px 70px rgba(74, 34, 39, 0.15), inset 0 0 30px rgba(234, 216, 193, 0.25);
+    border: 1px solid #DFCEB6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9;
+    overflow: hidden;
+    animation: envelopeInitialFadeIn 1s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+}
+
+@keyframes envelopeInitialFadeIn {
+    from { opacity: 0; transform: translateY(25px) scale(0.95); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.envelope-scene.visible {
+    display: flex;
+}
+
+.envelope-flap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 160px solid transparent;
+    border-right: 160px solid transparent;
+    border-top: 110px solid #FFFDF6;
+    filter: drop-shadow(0 4px 6px rgba(74,34,39,0.08));
+    transform-origin: top;
+    z-index: 13;
+    transition: transform 0.7s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.envelope-back-shading {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #F5EFE6 0%, #EAD8C1 100%);
+    z-index: 7;
+}
+
+.envelope-body-front {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 11;
+    pointer-events: none;
+    background: 
+        linear-gradient(26deg, #FFFDF6 50%, transparent 50.5%),
+        linear-gradient(-26deg, #FFFDF6 50%, transparent 50.5%);
+    background-size: 100% 100%;
+    border-bottom: 1px solid #DFCEB6;
+}
+
+.wax-seal {
+    position: absolute;
+    top: 95px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 48px;
+    height: 48px;
+    background: radial-gradient(circle, #A61C26 0%, #6B0A0F 85%);
+    border-radius: 50%;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.3), inset 0 2px 5px rgba(255,255,255,0.25);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #D4AF37;
+    font-size: 1.4rem;
+    z-index: 14;
+    transition: all 0.5s ease;
+    border: 1px solid #4F0508;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+}
+
+.envelope-paper-card {
+    font-family: 'Cinzel', serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: #4A2227;
+    background: #FAFAFA;
+    padding: 12px;
+    width: 270px;
+    height: 150px;
+    text-align: center;
+    border-radius: 2px;
+    border: 1px dashed rgba(212,175,55,0.5);
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(15px);
+    transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1), opacity 0.5s ease;
+}
+
+.envelope-scene.open-flap .envelope-flap {
+    transform: rotateX(180deg) translateY(4px);
+    z-index: 6;
+}
+
+.envelope-scene.open-flap .wax-seal {
+    transform: translate(-50%, -50%) scale(0) rotate(-45deg);
+    opacity: 0;
+}
+
+.envelope-scene.slide-out-paper .envelope-paper-card {
+    transform: translateY(-160px) scale(0.85);
+    opacity: 0;
+}
+
+/* ==================== 💎 THE PREMIUM LEATHER HOLDER CONTAINER ==================== */
+.premium-letter {
+    display: none;
+    background: #3A2227; 
+    width: 92%;
+    max-width: 580px;
+    height: 70vh;
+    position: relative;
+    box-shadow: 0 35px 85px rgba(45, 26, 30, 0.3), 0 10px 30px rgba(0,0,0,0.1);
+    border: 2px solid #2D1A1E;
+    z-index: 15;
+    transform: scale(0.85) translateY(40px);
+    opacity: 0;
+    padding: 15px;
+    transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+.premium-letter.unfurled {
+    display: block;
+    animation: letterRevealUnfurl 1.2s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+}
+
+.premium-letter.letter-vanished {
+    transform: scale(0.85) translateY(40px) !important;
+    opacity: 0 !important;
+    pointer-events: none;
+}
+
+@keyframes letterRevealUnfurl {
+    to { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+/* Independent Scroll Engine Node */
+.letter-scroll-wrapper {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    background: #FFFDF9;
+}
+
+.letter-scroll-wrapper::-webkit-scrollbar {
+    width: 4px;
+}
+
+.letter-scroll-wrapper::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.letter-scroll-wrapper::-webkit-scrollbar-thumb {
+    background: rgba(212, 175, 55, 0.3);
+    border-radius: 10px;
+}
+
+/* 📄 THE ULTRA-PREMIUM SHEET OF PAPER RESTING INSIDE THE CONTAINER FOLDER */
+.premium-paper-sheet {
+    background: #FFFDF9 !important; 
+    width: 100%;
+    min-height: 100%;
+    padding: 30px;
+    border: 1px solid #EAD8C1;
+    box-shadow: inset 0 0 20px rgba(234, 216, 193, 0.15), 0 4px 15px rgba(0,0,0,0.15);
+}
+
+/* Internal Filigree Gold Double Border Inset Frame */
+.letter-inner-border {
+    border: 2px solid #D4AF37; 
+    padding: 35px 30px;
+    position: relative;
+    min-height: 100%;
+    outline: 5px solid #FFFDF9;
+    outline-offset: -9px;
+    background: #FFFDF9;
+}
+
+/* Fine Editorial Typography Style */
+.typewriter-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.35rem;
+    font-weight: 600;
+    line-height: 1.85;
+    color: #2D1A1E;
+    white-space: pre-wrap;
+    text-align: left;
+}
+
+.typewriter-text::after {
+    content: '🖋️';
+    font-size: 1.2rem;
+    margin-left: 4px;
+    animation: penBlink 0.6s infinite alternate;
+}
+
+.typewriter-text.printing-done::after {
+    display: none;
+}
+
+@keyframes penBlink {
+    from { opacity: 0.3; } 
+    to { opacity: 1; }
+}
+
+.post-letter-wrapper {
+    width: 100%;
+    text-align: center;
+    margin-top: 2.2rem;
+    animation: luxuryPop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.btn-vanished {
+    opacity: 0 !important;
+}
+
+/* ==================== GLOBAL MEDIA QUERIES FOR PHONES ==================== */
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 2.3rem;
+        letter-spacing: 6px;
+        padding: 0 15px;
+        line-height: 1.5;
+    }
+    .ribbon { font-size: 1.8rem; top: -14px; }
+    .open-btn { font-size: 1rem; padding: 14px 44px; letter-spacing: 4px; }
+    .premium-card { max-width: 335px; padding: 15px; transform: rotate(-3deg); }
+    .card-inner-border { padding: 22px 14px; }
+    .corner { display: none; }
+    .card-heading { font-size: 1.25rem; letter-spacing: 2px; margin-bottom: 1.5rem; }
+    .card-message { font-size: 0.95rem; line-height: 1.7; }
+    .envelope-scene { width: 260px; height: 160px; }
+    .envelope-flap { border-left: 130px solid transparent; border-right: 130px solid transparent; border-top: 85px solid #FFFDF6; }
+    .envelope-paper-card { width: 220px; height: 120px; font-size: 0.7rem; }
+    .wax-seal { top: 78px; width: 40px; height: 40px; font-size: 1.1rem; }
+    .premium-letter { padding: 8px; max-width: 345px; height: 62vh; }
+    .premium-paper-sheet { padding: 15px; }
+    .letter-inner-border { padding: 22px 15px; }
+    .typewriter-text { font-size: 1.05rem; line-height: 1.6; }
+    .continue-btn, .letter-btn { font-size: 0.95rem; padding: 12px 36px; letter-spacing: 3px; }
+}
