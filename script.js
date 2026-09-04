@@ -241,7 +241,7 @@ function executeCinematicEnvelopeOpen() {
 
 // --- 8. HIGH END EDITORIAL TYPEWRITER RENDERING MATRIX (Extended & Slower Speeds) ---
 const letterTextContent = 
-`Dear Shahjhan Miss,
+`Dear Rakshita Miss,
 
 This letter is a small token of gratitude for your incredible dedication and warmth. Your patience transforms complex ideas into simple milestones, and your constant support gives us the confidence to reach higher every single day. 
 
